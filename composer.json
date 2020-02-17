@@ -1,0 +1,39 @@
+{
+    "name": "uccello/email-history",
+    "description": "An Uccello package to log email sended.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michaël GUERINO",
+            "email": "michael.guerino@gmail.com"
+        }
+    ],
+    "require": {
+        "uccello/uccello": "1.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Uccello\\EmailHistory\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Uccello\\EmailHistory\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Uccello\\EmailHistory\\Providers\\AppServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
