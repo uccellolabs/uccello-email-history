@@ -27,6 +27,9 @@
             "providers": [
                 "Uccello\\EmailHistory\\Providers\\AppServiceProvider"
             ]
+        },
+        "aliases": {
+            "EmailHistory": "Uccello\\EmailHistory\\Facades\\EmailHistory"
         }
     },
     "config": {

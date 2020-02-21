@@ -2,6 +2,7 @@
 
 namespace Uccello\EmailHistory\Providers;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -39,6 +40,9 @@ class AppServiceProvider extends ServiceProvider
 
   public function register()
   {
-
+      // Helper
+      App::bind('email-history', function () {
+          return new \Uccello\EmailHistory\Helpers\EmailHistory;
+      });
   }
 }
