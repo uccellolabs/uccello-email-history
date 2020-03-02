@@ -25,6 +25,8 @@ class Email extends Model
         'bcc',
         'user_id',
         'entity',
+        'sent_at',
+        'attachment',
         'domain_id'
     ];
 
@@ -46,7 +48,7 @@ class Email extends Model
 
     protected function initTablePrefix()
     {
-        $this->tablePrefix = 'email-history_';
+        $this->tablePrefix = 'email_history_';
     }
 
     public function user()

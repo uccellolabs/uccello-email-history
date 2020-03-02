@@ -5,6 +5,10 @@
     "license": "MIT",
     "authors": [
         {
+            "name": "Jonathan SARDO",
+            "email": "jonathan@uccellolabs.com"
+        },
+        {
             "name": "Michaël GUERINO",
             "email": "michael.guerino@gmail.com"
         }

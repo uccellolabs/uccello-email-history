@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 use Uccello\Core\Models\Module;
 use Uccello\Core\Models\Widget;
 
-class AddUserRolesWidget extends Migration
+class AddEmailHistoryWidget extends Migration
 {
     /**
      * Run the migrations.
@@ -16,17 +16,14 @@ class AddUserRolesWidget extends Migration
     public function up()
     {
         // Add the widget into the list of widgets
-        $widget = Widget::create([
-            'label' => 'widget.user_roles',
+        Widget::create([
+            'label' => 'widget.email_history',
             'type' => 'summary',
-            'class' => 'Uccello\EmailHistory\Widgets\UserRolesWidget',
+            'class' => 'Uccello\EmailHistory\Widgets\EmailHistoryWidget',
             'data' => null
         ]);
-
-        // Link the widget to the User module
-        $module = Module::where('name', 'user')->first();
-        $module->widgets()->attach($widget->id, [ 'sequence' => 0]);
     }
+
 
     /**
      * Reverse the migrations.
@@ -35,8 +32,8 @@ class AddUserRolesWidget extends Migration
      */
     public function down()
     {
-        Widget::where('label', 'widget.user_roles')
+        Widget::where('label', 'widget.email_history')
             ->where('type', 'summary')
-            ->where('class', 'Uccello\EmailHistory\Widgets\UserRolesWidget')->delete();
+            ->where('class', 'Uccello\EmailHistory\Widgets\EmailHistoryWidget')->delete();
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'email' => 'Emails',
     'tab' => [
         'tab.main' => 'Détails'
     ],
@@ -13,22 +14,12 @@ return [
     'field' => [
         'subject' => 'Sujet',
         'body' => 'Corps du mail',
-        'sent_at' => 'Envoyé à',
-        'to' => 'À',
+        'sent_at' => 'Envoyé le',
+        'to' => 'Destinataire',
         'cc' => 'CC',
         'bcc' => 'Cci',
-        'user' => 'Utilisateur',
+        'user' => 'Émetteur',
         'entity' => 'Entité',
-        'attachment' => 'Pièce Jointe'
+        'attachment' => 'Pièces jointes'
     ],
-    'field_info' => [
-
-    ],
-    'relatedlist' => [
-
-    ],
-    'link' => [
-
-    ],
-    'email' => 'Emails',
 ];

@@ -4,27 +4,27 @@
             <div class="card-content">
                 {{-- Title --}}
                 <span class="card-title">
-          {{-- Icon --}}
-          <i class="material-icons left primary-text">lock</i>
+                    {{-- Icon --}}
+                    <i class="material-icons left primary-text">email</i>
 
-          {{-- Label --}}
+                    {{-- Label --}}
                     {{ trans($label) }}
-        </span>
+                </span>
 
                 <div class="row">
-                        <ul class="collection">
-                            @forelse ($emails as $email)
-                            <li class="collection-item avatar">
-                                <i class="material-icons circle">email</i>
-                                <span class="title">{{ (($email->created_at))->format(config('uccello.format.php.datetime')) }}</span>
-                                <p><a class="modal-trigger open-email-modal" href="#email-modal" data-email='{{ json_encode($email) }}' data-date-format="{{ config('uccello.format.js.datetime') }}">{{ $email->subject }}</a> <br>
-                                </p>
-                            </li>
-                    @empty
-                           <li class="collection-item">Pas de mail</li>
-                    @endforelse
-                        </ul>
-                <!-- Modal Structure -->
+                    <ul class="collection">
+                        @forelse ($emails as $email)
+                        <li class="collection-item avatar">
+                            <i class="material-icons circle">email</i>
+                            <span class="title">{{ (($email->created_at))->format(config('uccello.format.php.datetime')) }}</span>
+                            <p><a class="modal-trigger open-email-modal" href="#email-modal" data-email='{{ json_encode($email) }}' data-date-format="{{ config('uccello.format.js.datetime') }}">{{ $email->subject }}</a> <br>
+                            </p>
+                        </li>
+                        @empty
+                            <li class="collection-item text-center">Pas de mail</li>
+                        @endforelse
+                    </ul>
+                    <!-- Modal Structure -->
                     <div id="email-modal" class="modal">
                         <div class="modal-content section">
                             <ul class="collection">
@@ -45,7 +45,7 @@
                         </div>
 
                         <div class="modal-footer">
-                            <a class="modal-close waves-effect waves-green btn-flat">{{ trans('email-history::widgets.widget.close') }}</a>
+                            <a class="modal-close waves-effect waves-green btn-flat">{{ trans('email-history::widget.close') }}</a>
                         </div>
                     </div>
                 </div>

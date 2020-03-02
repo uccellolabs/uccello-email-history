@@ -7,11 +7,11 @@ use Uccello\EmailHistory\Email;
 
 class EmailHistory
 {
-    public function add(Domain $domain, string $entity_uuid, string $subject, string $body, ?string $attachment, ?string $to, ?string $cc, ?string $bcc, ?string $sentAt)
+    public function add(Domain $domain, string $entity_uuid, string $subject, string $body, string $to, $sentAt = null, $attachment = null, $cc = null, $bcc = null)
     {
         return Email::create([
-           'subject' => $subject,
-           'body' => $body,
+            'subject' => $subject,
+            'body' => $body,
             'sent_at' => $sentAt,
             'to' => $to,
             'cc' => $cc,
@@ -26,5 +26,4 @@ class EmailHistory
     {
         return Email::create($params);
     }
-
 }

@@ -46,7 +46,7 @@ class CreateEmailModule extends Migration
 
     protected function initTablePrefix()
     {
-        $this->tablePrefix = 'email-history_';
+        $this->tablePrefix = 'email_history_';
 
         return $this->tablePrefix;
     }
@@ -69,7 +69,8 @@ class CreateEmailModule extends Migration
             $table->softDeletes();
 
             $table->foreign('domain_id')->references('id')->on('uccello_domains');
-// %table_foreign_keys%
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('entity')->references('id')->on('uccello_entities');
         });
     }
 
@@ -197,7 +198,7 @@ class CreateEmailModule extends Migration
             'block_id' => $block->id,
             'name' => 'entity',
             'uitype_id' => uitype('text')->id,
-            'displaytype_id' => displaytype('everywhere')->id,
+            'displaytype_id' => displaytype('hidden')->id,
             'sequence' => 7,
             'data' => null
         ]);
@@ -207,12 +208,11 @@ class CreateEmailModule extends Migration
             'module_id' => $module->id,
             'block_id' => $block->id,
             'name' => 'attachment',
-            'uitype_id' => uitype('textarea')->id,
-            'displaytype_id' => displaytype('everywhere')->id,
+            'uitype_id' => uitype('text')->id,
+            'displaytype_id' => displaytype('detail')->id,
             'sequence' => 8,
             'data' => null
         ]);
-
     }
 
     protected function createFilters($module)
@@ -224,7 +224,7 @@ class CreateEmailModule extends Migration
             'user_id' => null,
             'name' => 'filter.all',
             'type' => 'list',
-            'columns' => [ 'subject', 'body', 'sent-at', 'to', 'cc', 'bcc', 'user', 'entity', 'attachment' ],
+            'columns' => [ 'subject', 'to', 'user', 'attachment', 'sent_at' ],
             'conditions' => null,
             'order' => null,
             'is_default' => true,

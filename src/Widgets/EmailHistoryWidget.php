@@ -2,12 +2,9 @@
 
 namespace Uccello\EmailHistory\Widgets;
 
-
-use App\User;
 use Uccello\EmailHistory\Email;
 
 use Arrilot\Widgets\AbstractWidget;
-use Uccello\Core\Models\Domain;
 
 class EmailHistoryWidget extends AbstractWidget
 {
@@ -24,7 +21,7 @@ class EmailHistoryWidget extends AbstractWidget
      */
     public function run()
     {
-        //$user = User::find($this->config['record_id']);
+        $this->config['labelForTranslation'] = trans('email-history::widget.title');
 
         $module = ucmodule($this->config['module']);  // Récupère le module
         $recordId = $this->config['record_id']; // http://proservice.test/uccello/user/detail?id=1
@@ -34,19 +31,6 @@ class EmailHistoryWidget extends AbstractWidget
 
         $emails = Email::where('entity', $uuid)->get();
 
-        // dd($emails);
-        //dd($emails[0]->subject);
-        // dd($uuid);
-        // $record->uuid
-
-        /*   $rolesOnDomains = collect();
-           foreach (Domain::all() as $domain) {
-               $rolesOnDomain = $user->rolesOnDomain($domain);
-
-               if (count($rolesOnDomain) > 0) {
-                   $rolesOnDomains[$domain->name] = $rolesOnDomain;
-               }
-           }*/
         return view('email-history::widgets.email_history_widget', [
             'config' => $this->config,
             'domain' => ucdomain($this->config['domain']),
@@ -55,7 +39,6 @@ class EmailHistoryWidget extends AbstractWidget
             'record' => $record,
             'label' => $this->config['data']->label ?? $this->config['labelForTranslation'],
             'emails' => $emails
-            //'rolesOnDomains' => $rolesOnDomains
         ]);
     }
 }
