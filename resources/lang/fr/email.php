@@ -15,10 +15,10 @@ return [
         'subject' => 'Sujet',
         'body' => 'Corps du mail',
         'sent_at' => 'Envoyé le',
-        'to' => 'Destinataire',
-        'cc' => 'CC',
+        'to' => 'À',
+        'cc' => 'Cc',
         'bcc' => 'Cci',
-        'user' => 'Émetteur',
+        'user' => 'De',
         'entity' => 'Entité',
         'attachment' => 'Pièces jointes'
     ],

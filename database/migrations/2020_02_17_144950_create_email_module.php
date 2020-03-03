@@ -80,7 +80,7 @@ class CreateEmailModule extends Migration
             'name' => 'email',
             'icon' => 'email',
             'model_class' => 'Uccello\EmailHistory\Email',
-            'data' => json_decode('{"package":"uccello\/email-history"}')
+            'data' => json_decode('{"package":"uccello\/email-history", "menu": false}')
         ]);
 
         return $module;
@@ -224,7 +224,7 @@ class CreateEmailModule extends Migration
             'user_id' => null,
             'name' => 'filter.all',
             'type' => 'list',
-            'columns' => [ 'subject', 'to', 'user', 'attachment', 'sent_at' ],
+            'columns' => [ 'subject', 'user', 'to', 'attachment', 'sent_at' ],
             'conditions' => null,
             'order' => null,
             'is_default' => true,

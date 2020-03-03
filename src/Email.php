@@ -63,6 +63,6 @@ class Email extends Model
     */
     public function getRecordLabelAttribute() : string
     {
-        return $this->id;
+        return $this->subject ?? $this->id;
     }
 }
