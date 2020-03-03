@@ -226,7 +226,7 @@ class CreateEmailModule extends Migration
             'type' => 'list',
             'columns' => [ 'subject', 'user', 'to', 'attachment', 'sent_at' ],
             'conditions' => null,
-            'order' => null,
+            'order' => [ 'sent_at' => 'desc' ],
             'is_default' => true,
             'is_public' => false,
             'data' => [ 'readonly' => true ]
