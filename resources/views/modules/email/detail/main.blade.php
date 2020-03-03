@@ -32,7 +32,7 @@
                 </span>
 
 
-                <p>{{ $record->body }}</p>
+                <p>{!! $record->body !!}</p>
             </div>
             @if (!empty($record->attachment))
             <div class="card-action right-align">
