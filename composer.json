@@ -1,6 +1,6 @@
 {
     "name": "uccello/email-history",
-    "description": "An Uccello package to log email sended.",
+    "description": "An Uccello package to log email sent.",
     "type": "library",
     "license": "MIT",
     "authors": [
