@@ -86,34 +86,34 @@ A helper allows you to add easily a new email and link it to a record.
 ```php
 <?php
 
-  use Uccello\EmailHistory\Facades\EmailHistory;
+    use Uccello\EmailHistory\Facades\EmailHistory;
 
-  // Use function params
+    // Use function params
 	EmailHistory::add(
-    $domain, // Current domain
-    $record->uuid, // Record uuid
-    'Hi everyone!', // Email subject
-    'A beautiful email to remember install this package', // Email body
-    'friends@uccello.io', // To
-    Carbon::now(), // Sent at - optional
-    [ // An array with all attachments (File name => File path in storage) - optional
-      "File1.pdf" => "uccello/files/zPODV1l0WF4wEJsad7xHsX6G7D7Cu004AEKjDSkd.pdf",
-      "File2.pdf" => "uccello/files/zPODV1l0WF4wEJsad7xHsX6G7D7Cu004AEKjDSkd.pdf"
-    ],
-    'other_friends@uccello.io', // Cc - optional
-    'hidden_friends@uccello.io' // Bcc - optional
-  );
+        $domain, // Current domain
+        $record->uuid, // Record uuid
+        'Hi everyone!', // Email subject
+        'A beautiful email to remember install this package', // Email body
+        'friends@uccello.io', // To
+        Carbon::now(), // Sent at - optional
+        [ // An array with all attachments (File name => File path in storage) - optional
+        "File1.pdf" => "uccello/files/zPODV1l0WF4wEJsad7xHsX6G7D7Cu004AEKjDSkd.pdf",
+        "File2.pdf" => "uccello/files/zPODV1l0WF4wEJsad7xHsX6G7D7Cu004AEKjDSkd.pdf"
+        ],
+        'other_friends@uccello.io', // Cc - optional
+        'hidden_friends@uccello.io' // Bcc - optional
+    );
 
-  // Use array
+    // Use array
 	EmailHistory::addWithArray([
-    'subject' => $subject,
-    'body' => $body,
-    'sent_at' => $sentAt, // Optional
-    'to' => $to,
-    'cc' => $cc, // Optional
-    'bcc' => $bcc, // Optional
-    'attachment' => $attachment, // Optional
-    'domain_id' => $domain->id,
-    'entity' => $entity_uuid
-  ])
+        'subject' => $subject,
+        'body' => $body,
+        'sent_at' => $sentAt, // Optional
+        'to' => $to,
+        'cc' => $cc, // Optional
+        'bcc' => $bcc, // Optional
+        'attachment' => $attachment, // Optional
+        'domain_id' => $domain->id,
+        'entity' => $entity_uuid
+    ])
 ```
