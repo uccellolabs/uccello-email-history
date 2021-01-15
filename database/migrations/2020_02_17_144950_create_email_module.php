@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Uccello\Core\Database\Migrations\Migration;
 use Uccello\Core\Models\Module;
 use Uccello\Core\Models\Domain;
@@ -61,7 +62,14 @@ class CreateEmailModule extends Migration
             $table->string('to')->nullable();
             $table->string('cc')->nullable();
             $table->string('bcc')->nullable();
-            $table->unsignedInteger('user_id')->nullable();
+
+            // Compatibility with Laravel < 5.8
+            if (DB::getSchemaBuilder()->getColumnType('users', 'id') === 'bigint') { // Laravel >= 5.8
+                $table->unsignedBigInteger('user_id')->nullable();
+            } else { // Laravel < 5.8
+                $table->unsignedInteger('user_id')->nullable();
+            }
+
             $table->string('entity')->nullable();
             $table->text('attachment')->nullable();
             $table->unsignedInteger('domain_id');
