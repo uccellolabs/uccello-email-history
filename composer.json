@@ -14,7 +14,7 @@
         }
     ],
     "require": {
-        "uccello/uccello": "1.*"
+        "uccello/uccello": "1.*|2.*"
     },
     "autoload": {
         "psr-4": {
